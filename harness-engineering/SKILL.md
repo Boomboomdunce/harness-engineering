@@ -23,6 +23,7 @@ This skill synthesizes five bodies of work into operating rules:
 - **Community (Ralph pattern)**: fresh context is reliability; backpressure over prescription; disk is state, git is memory; steer with signals, not scripts.
 - **LangChain**: Agent = Model + Harness; context rot degrades performance as windows fill; models can overfit to specific harnesses; progressive disclosure via skills.
 - **Martin Fowler / Böckeler**: three-layer framework (context engineering → architectural constraints → garbage collection agents); stricter constraints yield more autonomy; harnesses will become future service templates.
+- **Knowledge-governance practice**: harness is the delivery pipe; reusable knowledge is the compounding asset. Each task should consume relevant project knowledge and archive what it learns.
 
 ## How To Use This Skill
 
@@ -43,6 +44,7 @@ Choose the playbook that matches the current task:
 | Multi-session autonomous build (hours/days) | [playbooks/long-running-build.md](playbooks/long-running-build.md) |
 | Refactoring, cleanup, or debt reduction | [playbooks/refactor-cleanup.md](playbooks/refactor-cleanup.md) |
 | Investigating and fixing a bug | [playbooks/bugfix-investigation.md](playbooks/bugfix-investigation.md) |
+| Capturing reusable project knowledge | [playbooks/knowledge-governance.md](playbooks/knowledge-governance.md) |
 
 If the repository already works well for agents, keep the harness light. If the agent is drifting, guessing, or self-approving weak work, strengthen the harness.
 
@@ -55,6 +57,8 @@ If critical knowledge only lives in chat, Slack, tickets, or human memory, the a
 Repository knowledge should be versioned, linked, reviewable, mechanically checkable, and close to the code it governs.
 
 Treat `docs/` as the durable knowledge base. Keep the project's entrypoint instructions short enough to serve as a map. Everything in the repo is a signal the agent will learn from — including bad patterns.
+
+Reusable knowledge should have type, scope, maturity, and evidence. Prefer small entries indexed by a catalog over a large knowledge dump. See [playbooks/knowledge-governance.md](playbooks/knowledge-governance.md), [templates/knowledge-entry.md](templates/knowledge-entry.md), and [templates/knowledge-catalog.md](templates/knowledge-catalog.md).
 
 ### 2. The project instruction file is a map, not an encyclopedia
 
@@ -204,6 +208,7 @@ At the start of work in any new or unfamiliar repository, perform a fast harness
 - [ ] Architecture or domain map
 - [ ] Versioned product/spec documentation
 - [ ] Implementation plans or decision logs
+- [ ] Knowledge catalog or reusable project knowledge
 - [ ] Verification commands and test entry points
 - [ ] Runtime bootstrap: startup scripts, environment summaries, toolchain discovery
 - [ ] CI or mechanical enforcement
@@ -233,6 +238,14 @@ For most repositories, establish at least this baseline:
 - `docs/` as durable knowledge base
 - prefer small, linked documents over one monolith
 - store decisions where agents can read them later
+- add a knowledge catalog when repeated decisions, pitfalls, or workflows are being rediscovered
+
+### Knowledge governance
+
+- classify reusable knowledge as `model`, `decision`, `guideline`, `pitfall`, or `process`
+- track maturity as `draft`, `verified`, or `proven`
+- consume relevant knowledge at startup, then archive new knowledge during handoff
+- never load the whole knowledge base by default; use catalog-first retrieval
 
 ### Architecture map
 
@@ -277,6 +290,17 @@ Organize knowledge so agents discover it incrementally:
 3. Inline comments → only for non-obvious logic
 
 Each layer points to the next. Never dump everything into one file.
+
+### Knowledge retrieval
+
+Knowledge should be loaded in stages:
+
+1. Read the instruction file for the map
+2. Read the knowledge catalog for candidate entries
+3. Open only entries relevant to the task, module, or risk
+4. Record stale or contradictory entries in the handoff
+
+This keeps the agent informed without filling context with unrelated history.
 
 ### Context resets vs compaction
 
@@ -448,6 +472,7 @@ Avoid these failure modes:
 - hidden acceptance criteria
 - agents grading their own work without an external check
 - plans that are not committed or not updated
+- reusable knowledge that is not cataloged, scoped, or reviewed
 - no artifact for long-running handoff
 - trusting polished UI over tested behavior
 - adding harness complexity because it sounds advanced
@@ -469,6 +494,8 @@ Ready-to-use templates for key artifacts:
 | [templates/sprint-contract.md](templates/sprint-contract.md) | Sprint contract between builder and evaluator |
 | [templates/evaluator-rubric.md](templates/evaluator-rubric.md) | Evaluator scoring criteria |
 | [templates/progress-tracker.json](templates/progress-tracker.json) | Structured feature tracking in JSON |
+| [templates/knowledge-entry.md](templates/knowledge-entry.md) | Reusable knowledge entry with scope, maturity, and evidence |
+| [templates/knowledge-catalog.md](templates/knowledge-catalog.md) | Index for project knowledge and review queue |
 
 ## Deliverables
 
@@ -482,6 +509,7 @@ When this skill triggers for real repository work, aim to leave behind the minim
 - an evaluator rubric or acceptance contract
 - a visible debt or quality tracker
 - a handoff artifact for long-running work
+- a knowledge catalog and entries when the task produced reusable decisions, pitfalls, or workflows
 - progress tracking in a structured format (JSON preferred over markdown for agent reliability)
 
 Do not force all of them on every repository. Build the minimum harness that makes the next tranche of work reliable.
@@ -498,3 +526,4 @@ Key sources:
 - Anthropic, "Building effective agents" — https://www.anthropic.com/research/building-effective-agents
 - Ralph (snarktank/ralph) — The iterative agent loop pattern
 - Awesome Harness Engineering (walkinglabs) — Community resource collection
+- Tencent Programmer, "Harness不是目的，知识才是护城河" — https://mp.weixin.qq.com/s/JV4-oPP0jjsBCZ4tW3Gy1g

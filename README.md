@@ -11,9 +11,10 @@ When triggered, this skill gives agents:
 - **A startup audit** — fast harness check when entering any new repository
 - **Workflow routing** — playbooks for common scenarios (new project, feature dev, long-running build, refactoring, bugfix)
 - **Ready-to-use templates** — for instruction files, handoff artifacts, sprint contracts, evaluator rubrics, and progress tracking
-- **Core principles** — repo as system of record, map not encyclopedia, separate planning/doing/judging, verify against reality, structured handoffs, incremental commits, entropy management
+- **Core principles** — repo as system of record, map not encyclopedia, separate planning/doing/judging, verify against reality, structured handoffs, incremental commits, knowledge governance, entropy management
 - **Context engineering** — progressive disclosure, context resets vs compaction, fresh context reliability
 - **Multi-agent patterns** — when and how to use planner/generator/evaluator architecture
+- **Knowledge governance** — catalog-first retrieval, reusable knowledge entries, maturity levels, and handoff-driven capture
 
 ## Repository Layout
 
@@ -28,13 +29,16 @@ harness-engineering/
     │   ├── feature-development.md      # Feature work in existing repo
     │   ├── long-running-build.md       # Multi-session autonomous builds
     │   ├── refactor-cleanup.md         # Refactoring and debt reduction
-    │   └── bugfix-investigation.md     # Bug investigation workflow
+    │   ├── bugfix-investigation.md     # Bug investigation workflow
+    │   └── knowledge-governance.md     # Reusable knowledge lifecycle
     ├── templates/
     │   ├── AGENTS.md.template          # Template for project instruction files
     │   ├── handoff-artifact.md         # Template for session handoffs
     │   ├── sprint-contract.md          # Template for sprint contracts
     │   ├── evaluator-rubric.md         # Template for evaluator criteria
-    │   └── progress-tracker.json       # Template for feature tracking (JSON)
+    │   ├── progress-tracker.json       # Template for feature tracking (JSON)
+    │   ├── knowledge-entry.md          # Template for reusable knowledge entries
+    │   └── knowledge-catalog.md        # Template for catalog-first retrieval
     └── references/
         └── ecosystem.md               # Harness engineering ecosystem resources
 ```
@@ -94,6 +98,7 @@ After installing, ask the agent "what skills are available" or start a task that
 |---------|-------------|
 | **Repo as system of record** | Everything the agent needs lives in the repo — Slack, tickets, and memory don't count |
 | **Map, not encyclopedia** | Instruction files are ~100-line directories pointing to deeper docs |
+| **Knowledge as moat** | Harness moves work through the system; typed, scoped, evidenced knowledge compounds across work |
 | **Separate planning, doing, judging** | Don't let one agent spec, implement, and grade itself |
 | **Make quality gradable** | Convert "make it better" into concrete, weighted criteria |
 | **Verify against reality** | Test the running product, not just the code |
@@ -111,6 +116,7 @@ After installing, ask the agent "what skills are available" or start a task that
 | [Long-Running Build](harness-engineering/playbooks/long-running-build.md) | Multi-hour/multi-session autonomous development |
 | [Refactor & Cleanup](harness-engineering/playbooks/refactor-cleanup.md) | Tech debt, code cleanup, architectural improvement |
 | [Bug Investigation](harness-engineering/playbooks/bugfix-investigation.md) | Reproduce → diagnose → test → fix → prevent |
+| [Knowledge Governance](harness-engineering/playbooks/knowledge-governance.md) | Capture, catalog, retrieve, and mature reusable project knowledge |
 
 ## Sources
 
@@ -122,6 +128,7 @@ This skill synthesizes:
 - [Ralph (snarktank/ralph)](https://github.com/snarktank/ralph) — iterative agent loop
 - [Awesome Harness Engineering](https://github.com/walkinglabs/awesome-harness-engineering) — community resources
 - [deusyu/harness-engineering](https://github.com/deusyu/harness-engineering) — learning archive and concept analysis
+- [Harness不是目的，知识才是护城河](https://mp.weixin.qq.com/s/JV4-oPP0jjsBCZ4tW3Gy1g) — knowledge layering and delivery-team knowledge capture practice
 
 ## Compatibility
 
@@ -140,6 +147,7 @@ Contributions welcome via Issues and PRs:
 - Enhance templates
 - Add ecosystem references
 - Share real-world experience reports
+- Add reusable knowledge patterns with clear scope, evidence, and maturity
 
 ## License
 

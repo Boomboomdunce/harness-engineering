@@ -32,6 +32,16 @@
 | [Decision 1] | [Why this choice was made] |
 | [Decision 2] | [Why this choice was made] |
 
+## Reusable Knowledge Extracted
+| Candidate | Type | Scope | Evidence | Suggested Maturity |
+|-----------|------|-------|----------|--------------------|
+| [Knowledge candidate 1] | `model`/`decision`/`guideline`/`pitfall`/`process` | [Where it applies] | [Code/test/user feedback/session result] | `draft`/`verified` |
+| [Knowledge candidate 2] | `model`/`decision`/`guideline`/`pitfall`/`process` | [Where it applies] | [Code/test/user feedback/session result] | `draft`/`verified` |
+
+## Knowledge Updates Needed
+- [ ] Add or update [knowledge entry path] because [reason]
+- [ ] Downgrade or remove [stale entry path] because [reason]
+
 ## Known Issues
 | Issue | Severity | Notes |
 |-------|----------|-------|
