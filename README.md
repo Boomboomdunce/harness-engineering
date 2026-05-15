@@ -4,6 +4,8 @@
 
 The skill brings together insights from OpenAI's harness engineering paradigm, Anthropic's multi-agent research, and the community's Ralph pattern into actionable playbooks, templates, and principles that agents use automatically.
 
+It also includes patterns from real long-running agent work: prompt-to-artifact evidence chains, explicit blocker handling, machine-readable progress tracking, and knowledge extraction from delivery sessions.
+
 ## What It Does
 
 When triggered, this skill gives agents:
@@ -11,6 +13,9 @@ When triggered, this skill gives agents:
 - **A startup audit** — fast harness check when entering any new repository
 - **Workflow routing** — playbooks for common scenarios (new project, feature dev, long-running build, refactoring, bugfix)
 - **Ready-to-use templates** — for instruction files, handoff artifacts, sprint contracts, evaluator rubrics, and progress tracking
+- **Evidence-driven delivery** — a playbook for proving milestones, release gates, experiments, and risky changes with durable artifacts
+- **Knowledge governance** — lightweight catalogs and entries for reusable decisions, pitfalls, processes, and domain models
+- **Mechanical audit helper** — a small script for checking whether a repository exposes the basic harness surfaces agents need
 - **Core principles** — repo as system of record, map not encyclopedia, separate planning/doing/judging, verify against reality, structured handoffs, incremental commits, knowledge governance, entropy management
 - **Context engineering** — progressive disclosure, context resets vs compaction, fresh context reliability
 - **Multi-agent patterns** — when and how to use planner/generator/evaluator architecture
@@ -30,6 +35,7 @@ harness-engineering/
     │   ├── long-running-build.md       # Multi-session autonomous builds
     │   ├── refactor-cleanup.md         # Refactoring and debt reduction
     │   ├── bugfix-investigation.md     # Bug investigation workflow
+    │   ├── evidence-driven-delivery.md # Prompt-to-artifact evidence workflow
     │   └── knowledge-governance.md     # Reusable knowledge lifecycle
     ├── templates/
     │   ├── AGENTS.md.template          # Template for project instruction files
@@ -39,6 +45,9 @@ harness-engineering/
     │   ├── progress-tracker.json       # Template for feature tracking (JSON)
     │   ├── knowledge-entry.md          # Template for reusable knowledge entries
     │   └── knowledge-catalog.md        # Template for catalog-first retrieval
+    ├── scripts/
+    │   ├── harness_audit.py            # Fast JSON audit of repo harness surfaces
+    │   └── test_harness_audit.py       # Unit tests for harness_audit.py
     └── references/
         └── ecosystem.md               # Harness engineering ecosystem resources
 ```
@@ -90,7 +99,20 @@ cp -R harness-engineering ~/.copilot/skills/
 
 ## Verify
 
+Validate the skill folder:
+
+```bash
+python3 ~/.codex/skills/.system/skill-creator/scripts/quick_validate.py harness-engineering
+python3 harness-engineering/scripts/test_harness_audit.py
+```
+
 After installing, ask the agent "what skills are available" or start a task that involves project setup, code review, or long-running development. The skill should trigger automatically.
+
+To audit a target repository's harness surfaces:
+
+```bash
+python3 harness-engineering/scripts/harness_audit.py /path/to/repo --pretty
+```
 
 ## Core Concepts
 
@@ -102,7 +124,9 @@ After installing, ask the agent "what skills are available" or start a task that
 | **Separate planning, doing, judging** | Don't let one agent spec, implement, and grade itself |
 | **Make quality gradable** | Convert "make it better" into concrete, weighted criteria |
 | **Verify against reality** | Test the running product, not just the code |
+| **Evidence over claims** | Completion requires commands, artifacts, review notes, or explicit blockers |
 | **Structured handoffs** | Context reset + handoff artifact beats a bloated session |
+| **Knowledge compounds** | Reusable decisions, pitfalls, and processes should be cataloged with evidence |
 | **Work incrementally** | One feature at a time, commit often, test each feature |
 | **Manage entropy** | Agents replicate patterns — including bad ones. Encode good patterns as lint rules. |
 | **Complexity earns its keep** | Every harness component is a claim the model can't do X. Stress-test those claims. |
@@ -116,6 +140,7 @@ After installing, ask the agent "what skills are available" or start a task that
 | [Long-Running Build](harness-engineering/playbooks/long-running-build.md) | Multi-hour/multi-session autonomous development |
 | [Refactor & Cleanup](harness-engineering/playbooks/refactor-cleanup.md) | Tech debt, code cleanup, architectural improvement |
 | [Bug Investigation](harness-engineering/playbooks/bugfix-investigation.md) | Reproduce → diagnose → test → fix → prevent |
+| [Evidence-Driven Delivery](harness-engineering/playbooks/evidence-driven-delivery.md) | Proving milestones, release gates, experiments, and risky changes |
 | [Knowledge Governance](harness-engineering/playbooks/knowledge-governance.md) | Capture, catalog, retrieve, and mature reusable project knowledge |
 
 ## Sources

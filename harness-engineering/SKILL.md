@@ -24,6 +24,7 @@ This skill synthesizes five bodies of work into operating rules:
 - **LangChain**: Agent = Model + Harness; context rot degrades performance as windows fill; models can overfit to specific harnesses; progressive disclosure via skills.
 - **Martin Fowler / Böckeler**: three-layer framework (context engineering → architectural constraints → garbage collection agents); stricter constraints yield more autonomy; harnesses will become future service templates.
 - **Knowledge-governance practice**: harness is the delivery pipe; reusable knowledge is the compounding asset. Each task should consume relevant project knowledge and archive what it learns.
+- **Field practice**: durable prompt-to-artifact evidence, explicit blockers, review notes, and machine-readable trackers are more reliable than chat-only completion claims.
 
 ## How To Use This Skill
 
@@ -45,6 +46,7 @@ Choose the playbook that matches the current task:
 | Refactoring, cleanup, or debt reduction | [playbooks/refactor-cleanup.md](playbooks/refactor-cleanup.md) |
 | Investigating and fixing a bug | [playbooks/bugfix-investigation.md](playbooks/bugfix-investigation.md) |
 | Capturing reusable project knowledge | [playbooks/knowledge-governance.md](playbooks/knowledge-governance.md) |
+| Proving a milestone, release gate, experiment, or risky change | [playbooks/evidence-driven-delivery.md](playbooks/evidence-driven-delivery.md) |
 
 If the repository already works well for agents, keep the harness light. If the agent is drifting, guessing, or self-approving weak work, strengthen the harness.
 
@@ -474,6 +476,7 @@ Avoid these failure modes:
 - plans that are not committed or not updated
 - reusable knowledge that is not cataloged, scoped, or reviewed
 - no artifact for long-running handoff
+- completion claims that are not backed by commands, files, or review notes
 - trusting polished UI over tested behavior
 - adding harness complexity because it sounds advanced
 - keeping stale docs that disagree with the code
@@ -497,6 +500,16 @@ Ready-to-use templates for key artifacts:
 | [templates/knowledge-entry.md](templates/knowledge-entry.md) | Reusable knowledge entry with scope, maturity, and evidence |
 | [templates/knowledge-catalog.md](templates/knowledge-catalog.md) | Index for project knowledge and review queue |
 
+## Scripts
+
+Use bundled scripts when a deterministic check is helpful:
+
+```bash
+python3 harness-engineering/scripts/harness_audit.py /path/to/repo --pretty
+```
+
+`harness_audit.py` reports entrypoint docs, core harness artifacts, CI/runtime surfaces, git status, and actionable warnings. Treat it as a quick triage signal, not a substitute for reading the repo.
+
 ## Deliverables
 
 When this skill triggers for real repository work, aim to leave behind the minimum set from:
@@ -510,6 +523,7 @@ When this skill triggers for real repository work, aim to leave behind the minim
 - a visible debt or quality tracker
 - a handoff artifact for long-running work
 - a knowledge catalog and entries when the task produced reusable decisions, pitfalls, or workflows
+- a review or audit note when completion depends on evidence, blockers, or release/experiment gates
 - progress tracking in a structured format (JSON preferred over markdown for agent reliability)
 
 Do not force all of them on every repository. Build the minimum harness that makes the next tranche of work reliable.
