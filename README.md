@@ -16,39 +16,9 @@ This project packages harness engineering practice as a portable skill. `SKILL.m
 
 ![harness-engineering architecture](assets/harness-engineering-architecture-en.png)
 
-Chinese version:
-
-![harness-engineering architecture in Chinese](assets/harness-engineering-architecture-zh.png)
-
 The architecture is a reliability harness around the coding agent. `SKILL.md` is the kernel: it routes work into startup audit, workflow execution, or repo redesign. Around it, context files, playbooks, quality gates, and memory artifacts form the constraint system that keeps agent work observable, verifiable, and reusable.
 
 The Chinese architecture diagram is available in the [Chinese README](README.zh-CN.md#架构).
-
-<details>
-<summary>Architecture diagram prompt</summary>
-
-```text
-Create a polished 16:9 systems architecture diagram for the open-source project "harness-engineering".
-This is an engineering blueprint for an Agent Skill that turns AI coding work into a constrained, verifiable, evidence-driven delivery system.
-
-Use a premium technical architecture infographic style: clean systems blueprint, crisp vector-like bitmap, restrained professional palette, light background, thin connector lines, subtle depth, high information density but readable.
-
-Use a central hub-and-loop architecture:
-- Center: "SKILL.md Harness Kernel" with "Startup Audit", "Workflow Router", and "Redesign Mode"
-- Left inputs: "Human Intent" and "Repository State"
-- Surrounding layers:
-  1. "Context System": "AGENTS.md", "Docs Map", "Knowledge Catalog", "References"
-  2. "Execution Playbooks": "Feature", "Bugfix", "Refactor", "Long-Running", "Evidence Delivery"
-  3. "Quality Gates": "Tests", "Lint / CI", "Audit Script", "Evaluator Rubric"
-  4. "Memory Artifacts": "Progress Tracker", "Sprint Contract", "Handoff", "Git Commits"
-- Right delivery loop: "Plan → Build → Evaluate → Evidence → Handoff"
-- Outcomes: "Verified Delivery", "Reusable Knowledge", "Controlled Entropy", "Lower Agent Drift"
-
-Footer: "Humans design constraints • Agents execute • Repo stores truth"
-Make it feel engineered: constraint rails, feedback signals, artifact storage, verification gates, and memory loops. Avoid generic cards, decorative blobs, logos, watermarks, and tiny text.
-```
-
-</details>
 
 ## What It Does
 
