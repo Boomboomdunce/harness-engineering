@@ -23,25 +23,25 @@
 
 | Resource | Description |
 |----------|-------------|
-| [Software Engineering with AI Coding Agents](https://martinfowler.com/articles/ai-coding-agents.html) | Birgitta Böckeler's three-layer framework: Context Engineering → Architectural Constraints → Garbage Collection Agents. Four hypotheses on the future: harness as service template, stricter constraints → more autonomy, tech stack convergence toward AI-friendly choices, pre/post-AI application split. Critiques OpenAI's original for underemphasizing functional correctness verification. |
+| [Harness engineering for coding agent users](https://martinfowler.com/articles/harness-engineering.html) | Birgitta Böckeler's three-layer framework: Context Engineering → Architectural Constraints → Garbage Collection Agents. Four hypotheses on the future: harness as service template, stricter constraints → more autonomy, tech stack convergence toward AI-friendly choices, pre/post-AI application split. Critiques OpenAI's original for underemphasizing functional correctness verification. |
 
 ### LangChain
 
 | Resource | Description |
 |----------|-------------|
-| [Anatomy of an Agent Harness](https://blog.langchain.dev/anatomy-of-an-agent-harness/) | Defines Agent = Model + Harness. Introduces context rot, the Ralph loop mechanism, model-harness coupling (models overfit to specific harnesses), and progressive disclosure via skills. Terminal Bench 2.0 finding: pure harness optimization moved performance from Top 30 → Top 5. |
+| [Anatomy of an Agent Harness](https://www.langchain.com/blog/the-anatomy-of-an-agent-harness) | Defines Agent = Model + Harness. Introduces context rot, the Ralph loop mechanism, model-harness coupling (models overfit to specific harnesses), and progressive disclosure via skills. Terminal Bench 2.0 finding: pure harness optimization moved from Top 30 → Top 5. |
 
 ### HumanLayer
 
 | Resource | Description |
 |----------|-------------|
-| [It's Not a Prompt Issue. It's a Skill Issue.](https://humanlayer.dev/blog/its-not-a-prompt-issue-its-a-skill-issue) | Defines 6 configuration levers: AGENTS.md (≤60 lines), MCP Servers, Skills, Sub-Agents, Hooks, Back-Pressure. Key insight: "the model is probably fine — it's just a skill issue." Cheap models for subtasks, expensive models for orchestration. |
+| [Skill Issue: Harness Engineering for Coding Agents](https://www.humanlayer.dev/blog/skill-issue-harness-engineering-for-coding-agents) | Defines 6 configuration levers: AGENTS.md (≤60 lines), MCP Servers, Skills, Sub-Agents, Hooks, Back-Pressure. Key insight: "the model is probably fine — it's just a skill issue." Cheap models for subtasks, expensive models for orchestration. |
 
 ### Mitchell Hashimoto
 
 | Resource | Description |
 |----------|-------------|
-| [Engineer the Harness](https://mitchellh.com/writing/engineer-the-harness) | Early articulation of "engineer the harness" concept. Focus on how to set up the environment so AI coding agents succeed — constraints, tooling, and feedback loops as the engineer's primary output. |
+| [My AI Adoption Journey: Engineer the Harness](https://mitchellh.com/writing/my-ai-adoption-journey#step-5-engineer-the-harness) | Early articulation of "engineer the harness" concept. Focus on how to set up the environment so AI coding agents succeed — constraints, tooling, and feedback loops as the engineer's primary output. |
 
 ### YDD / Efficiency Paradox
 

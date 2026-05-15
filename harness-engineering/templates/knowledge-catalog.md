@@ -24,23 +24,23 @@
 
 ### Models
 
-- [K-001: Example domain model](knowledge/models/example.md)
+- K-001: Example domain model (`knowledge/models/example.md`)
 
 ### Decisions
 
-- [K-002: Example decision](knowledge/decisions/example.md)
+- K-002: Example decision (`knowledge/decisions/example.md`)
 
 ### Guidelines
 
-- [K-003: Example guideline](knowledge/guidelines/example.md)
+- K-003: Example guideline (`knowledge/guidelines/example.md`)
 
 ### Pitfalls
 
-- [K-004: Example pitfall](knowledge/pitfalls/example.md)
+- K-004: Example pitfall (`knowledge/pitfalls/example.md`)
 
 ### Processes
 
-- [K-005: Example process](knowledge/processes/example.md)
+- K-005: Example process (`knowledge/processes/example.md`)
 
 ## Stale Or Deprecated
 

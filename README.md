@@ -28,12 +28,11 @@ When triggered, this skill gives agents:
 - **Workflow routing** — playbooks for common scenarios (new project, feature dev, long-running build, refactoring, bugfix)
 - **Ready-to-use templates** — for instruction files, handoff artifacts, sprint contracts, evaluator rubrics, and progress tracking
 - **Evidence-driven delivery** — a playbook for proving milestones, release gates, experiments, and risky changes with durable artifacts
-- **Knowledge governance** — lightweight catalogs and entries for reusable decisions, pitfalls, processes, and domain models
+- **Knowledge governance** — catalog-first retrieval, lightweight entries, maturity levels, and handoff-driven capture for reusable decisions, pitfalls, processes, and domain models
 - **Mechanical audit helper** — a small script for checking whether a repository exposes the basic harness surfaces agents need
 - **Core principles** — repo as system of record, map not encyclopedia, separate planning/doing/judging, verify against reality, structured handoffs, incremental commits, knowledge governance, entropy management
 - **Context engineering** — progressive disclosure, context resets vs compaction, fresh context reliability
 - **Multi-agent patterns** — when and how to use planner/generator/evaluator architecture
-- **Knowledge governance** — catalog-first retrieval, reusable knowledge entries, maturity levels, and handoff-driven capture
 
 ## Repository Layout
 
